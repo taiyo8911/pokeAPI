@@ -1,5 +1,5 @@
-# pokeAPI
-pokeAPIを使って初代ポケモンの画像を一覧表示する
+# pokeAPIを使ってポケモンの画像を一覧を表示する
+pokeAPIを使って初代ポケモンの画像をHTMLで一覧表示する
 
 ## 参考
 - しまぶーのIT大学 https://youtu.be/QugDLcOo_EE
