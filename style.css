@@ -1,9 +1,12 @@
 #wrapper {
     width: 80%;
     margin: 0 auto;
+    text-align: center;
 }
 
-
+img{
+    background-color: white;
+}
 
 .grass {
     background-color: #0EAE09;

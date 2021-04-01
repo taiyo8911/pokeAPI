@@ -13,7 +13,6 @@ async function callApi() {
         pokeName = data['name']
         pokeType = data['types'][0]['type']['name']
 
-
         // HTMLを生成していく
         // div要素を生成
         var div = document.createElement('div');
@@ -23,20 +22,32 @@ async function callApi() {
         img.src = pokeImageUrl; // 画像パスを追加
         div.appendChild(img); // img要素をdiv要素の子要素に追加
 
+        // idを表示
         var id = document.createElement('p');
         id.innerHTML = pokeId;
         div.appendChild(id);
 
-        var name = document.createElement('p');
-        name.innerHTML = pokeName;
-        div.appendChild(name);
-
+        // タイプを表示
         var type = document.createElement('p');
         type.innerHTML = pokeType;
         div.appendChild(type);
 
-        let pref = 'Osaka';
+        // 英語名を表示
+        var name = document.createElement('p');
+        name.innerHTML = pokeName;
+        div.appendChild(name);
 
+        // jsonファイルを読み込んで、日本語の名前を取得する
+        $.getJSON("name_trans.json", function(data){
+            jName = data[i-2].ja;
+
+            // 日本語名を表示
+            var jn = document.createElement('p');
+            jn.innerHTML = jName;
+            div.appendChild(jn);
+        });
+
+        // タイプによって背景色を変える（クラスを付与する）
         switch (pokeType){
         case 'grass':
             div.className = 'grass';
