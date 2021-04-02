@@ -4,8 +4,8 @@ async function callApi() {
     for (i = 1; i <= num; i++) {
         String(i); // 数値を文字に変換してURLにする
         // APIを叩いてjsonを取得する
-        res = await fetch("https://pokeapi.co/api/v2/pokemon/" + i);
-        data = await res.json();
+        const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + i);
+        const data = await res.json();
         parseInt(i);
 
         // 個別のjsonデータを変数に入れる
