@@ -6,6 +6,7 @@ async function callApi() {
         // APIを叩いてjsonを取得する
         res = await fetch("https://pokeapi.co/api/v2/pokemon/" + i);
         data = await res.json();
+        parseInt(i);
 
         // 個別のjsonデータを変数に入れる
         pokeImageUrl = data['sprites']['front_default']
