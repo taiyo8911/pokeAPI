@@ -2,7 +2,7 @@ num = 151; //表示したい画像の数
 
 async function callApi() {
     for (i = 1; i <= num; i++) {
-        i.int; // 数値を文字に変換してURLにする
+        String(i); // 数値を文字に変換してURLにする
         // APIを叩いてjsonを取得する
         res = await fetch("https://pokeapi.co/api/v2/pokemon/" + i);
         data = await res.json();
