@@ -1,115 +1,30 @@
-#wrapper {
-    width: 80%;
-    margin: 0 auto;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
     text-align: center;
 }
 
-img{
-    background-color: white;
+#wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    border: 3px double blue;
+    background: grey;
+
+    display: grid;
+    grid-gap: 6px;
+    grid-template-columns: max-content max-content max-content;
+
+    justify-content: center;
 }
 
-.grass {
-    background-color: #0EAE09;
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-
-}
-
-.fire {
-    background-color: rgb(247, 77, 77);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.water {
-    background-color: rgb(168, 208, 241);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.bug {
-    background-color: rgb(121, 250, 121);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.normal {
-    background-color: rgb(240, 223, 223);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.poison {
-    background-color: rgb(173, 65, 146);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.electric {
-    background-color: rgb(236, 238, 93);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.ground {
-    background-color: rgb(177, 159, 120);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.fairy {
-    background-color: rgb(245, 168, 213);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.psychic {
-    background-color: rgb(201, 204, 40);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.fighting {
-    background-color: rgb(165, 170, 241);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.rock {
-    background-color: rgb(126, 122, 124);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.ghost {
-    background-color: rgb(92, 63, 78);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.dragon {
-    background-color: rgb(24, 161, 24);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
-}
-
-.ice {
-    background-color: rgb(124, 225, 250);
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px;
+div {
+    text-align: center;
+    background: #ddd;
+    padding: 4px;
+    border-radius: 8px;
+    border: 3px solid #ccc;
+    margin: 30px 0px;
 }
