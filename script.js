@@ -1,106 +1,49 @@
-num = 151; //表示したい画像の数
+"use strict";
 
-async function callApi() {
-    for (i = 1; i <= num; i++) {
-        String(i); // 数値を文字に変換してURLにする
-        // APIを叩いてjsonを取得する
-        const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + i);
+//表示したい画像の数
+const DISPLAY_NUM = 151;
+
+// APIから取得するデータを保存する配列
+let imageUrlArray = []
+let idArray = []
+let enNameArray = []
+let typeArray = []
+// jsonファイルから取得する日本語名を保存する配列
+let jaNameArray = []
+
+
+async function main() {
+    // APIでデータを取得する
+    for (let i = 1; i < DISPLAY_NUM + 2; i++) {
+        const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + String(i));
         const data = await res.json();
-        parseInt(i);
 
-        // 個別のjsonデータを変数に入れる
-        pokeImageUrl = data['sprites']['front_default']
-        pokeId = data['id']
-        pokeName = data['name']
-        pokeType = data['types'][0]['type']['name']
-
-        // HTMLを生成していく
-        // div要素を生成
-        var div = document.createElement('div');
-
-        // img要素を生成
-        var img = document.createElement('img');
-        img.src = pokeImageUrl; // 画像パスを追加
-        div.appendChild(img); // img要素をdiv要素の子要素に追加
-
-        // idを表示
-        var id = document.createElement('p');
-        id.innerHTML = pokeId;
-        div.appendChild(id);
-
-        // タイプを表示
-        var type = document.createElement('p');
-        type.innerHTML = pokeType;
-        div.appendChild(type);
-
-        // 英語名を表示
-        var name = document.createElement('p');
-        name.innerHTML = pokeName;
-        div.appendChild(name);
-
+        // jsonデータを配列に入れていく
+        imageUrlArray[i] = data['sprites']['front_default']
+        idArray[i] = data['id']
+        enNameArray[i] = data['name']
+        typeArray[i] = data['types'][0]['type']['name']
         // jsonファイルを読み込んで、日本語の名前を取得する
-        $.getJSON("name_trans.json", function(data){
-            jName = data[i-2].ja;
-
-            // 日本語名を表示
-            var jn = document.createElement('p');
-            jn.innerHTML = jName;
-            div.appendChild(jn);
+        $.getJSON("name_trans.json", function (data) {
+            jaNameArray[i] = data[i - 1].ja;
         });
-
-        // タイプによって背景色を変える（クラスを付与する）
-        switch (pokeType){
-        case 'grass':
-            div.className = 'grass';
-            break;
-        case 'fire':
-            div.className = 'fire';
-            break;
-        case 'water':
-            div.className = 'water';
-            break;
-        case 'bug':
-            div.className = 'bug';
-            break;
-        case 'normal':
-            div.className = 'normal';
-            break;
-        case 'poison':
-            div.className = 'poison';
-            break;
-        case 'electric':
-            div.className = 'electric';
-            break;
-        case 'ground':
-            div.className = 'ground';
-            break;
-        case 'fairy':
-            div.className = 'fairy';
-            break;
-        case 'fighting':
-            div.className = 'fighting';
-            break;
-        case 'psychic':
-            div.className = 'psychic';
-            break;
-        case 'rock':
-            div.className = 'rock';
-            break;
-        case 'ghost':
-            div.className = 'ghost';
-            break;
-        case 'ice':
-            div.className = 'ice';
-            break;
-        case 'dragon':
-            div.className = 'dragon';
-            break;
-        default:
-        }
-
-        // 生成したdiv要素を、wrapperに追加する
-        document.getElementById('wrapper').appendChild(div);
     }
+
+    // HTMLの作成と表示
+    await generateHtml()
+
 }
 
-callApi();
+
+// HTMLの作成と表示する関数
+function generateHtml() {
+    let html = "";
+    for (let i = 1; i < DISPLAY_NUM + 1; i++) {
+        html += `<div><image src='${imageUrlArray[i]}'><p>${idArray[i]}</p><p>${typeArray[i]}</p><p>${enNameArray[i]}</p><p>${jaNameArray[i]}</p></div>`
+    }
+    // id:wrapperにHTMLを追加する
+    document.getElementById('wrapper').innerHTML = html;
+}
+
+
+main()
