@@ -1,4 +1,4 @@
-# pokeAPIを使ってポケモンの画像を一覧表示するWebアプリ
+# pokemon-view-web-1
 pokeAPIを使って初代ポケモンの画像をHTMLで一覧表示する
 
 ## 参考
